@@ -1,0 +1,33 @@
+group 'jetbrains'
+version '1.0-SNAPSHOT'
+
+apply plugin: 'java'
+apply plugin: 'application'
+mainClassName = "ex3"
+
+repositories {
+    mavenCentral()
+}
+
+
+dependencies {
+    testCompile group: 'junit', name: 'junit', version: '4.11'
+}
+
+run {
+    try {
+        systemProperties System.getProperties()
+        args System.getProperty("args").split()
+    } catch (Exception e) {
+        // println "Please add -Dargs=\"...\" even if it is empty"
+    }
+
+}
+
+
+
+task sequencehelp << {
+    println "Integer Sequence Project"
+    println "Given an integer n as an argument, displays Tri(n) and LC(n)."
+
+}
